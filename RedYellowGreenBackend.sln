@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedYellowGreenBackend", "RedYellowGreenBackend\RedYellowGreenBackend.csproj", "{8BD2A050-7079-44EC-AEC9-BCFC8052DEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedYellowGreenBackend.Tests", "RedYellowGreenBackend.Tests\RedYellowGreenBackend.Tests.csproj", "{EC7519BF-5139-4B14-9AF8-291C40A8DA82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD2A050-7079-44EC-AEC9-BCFC8052DEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD2A050-7079-44EC-AEC9-BCFC8052DEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD2A050-7079-44EC-AEC9-BCFC8052DEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD2A050-7079-44EC-AEC9-BCFC8052DEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7519BF-5139-4B14-9AF8-291C40A8DA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7519BF-5139-4B14-9AF8-291C40A8DA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7519BF-5139-4B14-9AF8-291C40A8DA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7519BF-5139-4B14-9AF8-291C40A8DA82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
