@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.SignalR;
 using RedYellowGreenBackend.Dtos;
+using RedYellowGreenBackend.Hubs;
 using RedYellowGreenBackend.Models;
 using RedYellowGreenBackend.Services;
 
@@ -16,11 +14,13 @@ public class EquipmentController : ControllerBase
 {
     private readonly ILogger<EquipmentController> _logger;
     private readonly IEquipmentService _equipmentService;
+    private readonly IHubContext<EquipmentStateHub> _hubContext;
     
-    public EquipmentController(ILogger<EquipmentController> logger, IEquipmentService equipmentService)
+    public EquipmentController(ILogger<EquipmentController> logger, IEquipmentService equipmentService, IHubContext<EquipmentStateHub> hubContext)
     {
         _logger = logger;
         _equipmentService = equipmentService;
+        _hubContext = hubContext;
     }
 
     [HttpGet]
@@ -59,6 +59,18 @@ public class EquipmentController : ControllerBase
         {
             return NotFound($"Equipment with ID {id} not found");
         }
+        
+        await _hubContext.Clients.All.SendAsync("EquipmentStateUpdated", new
+        {
+            equipmentId = updatedEquipment.Id,
+            equipmentName = updatedEquipment.Name,
+            newState = updatedEquipment.CurrentState,
+            timestamp = updatedEquipment.LastStateChange,
+            changedBy = request.ChangedBy
+        });
+        
+        _logger.LogInformation("Equipment state updated: {EquipmentId} to {NewState} by {ChangedBy}", id, newState, request.ChangedBy);
+        
         return Ok(updatedEquipment);
     }
 

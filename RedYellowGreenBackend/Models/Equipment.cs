@@ -1,5 +1,3 @@
-using System;
-
 namespace RedYellowGreenBackend.Models;
 
 public class Equipment

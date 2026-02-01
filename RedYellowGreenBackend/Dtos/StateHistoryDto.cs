@@ -1,5 +1,3 @@
-using System;
-
 namespace RedYellowGreenBackend.Dtos;
 
 public class StateHistoryDto
