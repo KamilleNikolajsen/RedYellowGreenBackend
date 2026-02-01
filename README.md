@@ -28,7 +28,6 @@
 
 ## CORS Configuration
 - By default, the backend allows requests from any frontend (any origin).
-- If you want to restrict CORS, update the CORS policy in `Program.cs`.
 
 ## Database
 - The backend uses a SQLite database file at `./TestDatabase/RedYellowGreenBackend.db`.
