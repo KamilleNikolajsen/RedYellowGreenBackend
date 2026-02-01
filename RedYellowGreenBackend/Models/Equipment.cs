@@ -7,5 +7,3 @@ public class Equipment
     public EquipmentState CurrentState { get; set; }
     public DateTime LastStateChange { get; set; }
 }
-
-// TEST FOR PR
