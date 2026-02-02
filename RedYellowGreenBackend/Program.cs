@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins("http://localhost:5173/")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -27,8 +27,9 @@ var app = builder.Build();
 app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapHub<EquipmentStateHub>("/hubs/states");
+app.UseAuthentication();
 app.MapControllers();
+app.MapHub<EquipmentStateHub>("/hubs/states");
 
 using (var scope = app.Services.CreateScope())
 {
@@ -37,7 +38,7 @@ using (var scope = app.Services.CreateScope())
     TestData.IngestTestData(db);
 }
 
-app.Run("http://localhost:5000");
+app.Run("http://localhost:5001");
 
 // Make Program accessible for testing
 public partial class Program { }
